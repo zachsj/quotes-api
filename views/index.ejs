@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quote App</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  
+  <body>
+    <h1 data-position="header">CRUD App using Node, Express, MongoDB</h1>
+
+    <section data-position="add-quotes">
+    <h2>Add inspiring quote</h2>
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <button id="first-button" type="submit">Submit</button>
+      <img src="Albert_Einstein.jpg" alt="Einstein" width="90" height="90" style="margin-top: 20px; margin-left: 20px;"> 
+    </form>
+    </section>
+
+    <section data-position="update-quote">
+      <div>
+        <h2>Clark Griswold cracks a joke.</h2>
+        <p>Replace an inspiring quote with a random Clark Griswold quote.</p>
+        <button id="update-button">Replace quote</button>
+        <img src="christmas-vacation-clark.jpg" alt="Clark G" width="90" height="90" style="margin-left: 20px";>
+      </div>
+    </section>
+
+    <section data-position="delete-quote">
+      <div>
+        <h2>You don't find it funny.</h2>
+        <p>
+          Delete a Clark Griswold quote.
+        </p>
+        <button id="delete-button">Delete quote</button>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+      <h3>Quotes.</h3>
+    
+      <ul class="quotes">
+          <!-- Loop through quotes -->
+          <% for(var i = 0; i < quotes.length; i++) {%>
+          <li class="quote">
+            <!-- Output name from the iterated quote object -->
+            <span><%= quotes[i].name %></span>:
+            <!-- Output quote from the iterated quote object -->
+            <span><%= quotes[i].quote %></span>
+          </li>
+          <% } %>
+        </ul>
+      </section>
+
+      <script src="/main.js"></script>
+      
+  </body>
+</html>
